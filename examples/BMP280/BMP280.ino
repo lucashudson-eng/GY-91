@@ -24,6 +24,22 @@ void setup() {
 }
 
 void loop() {
-  // Next steps: configure oversampling and read temperature/pressure
+  float temperature = bmp.readTemperature();
+  float pressure = bmp.readPressure();
+  float altitude = bmp.readAltitude();
+
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+
+  Serial.print("Pressure: ");
+  Serial.print(pressure);
+  Serial.println(" Pa");
+
+  Serial.print("Altitude: ");
+  Serial.print(altitude);
+  Serial.println(" m");
+
+  Serial.println("---");
   delay(1000);
 }
