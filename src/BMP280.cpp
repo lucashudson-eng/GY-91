@@ -7,7 +7,7 @@ BMP280::BMP280(uint8_t csPin) : useHardwareSPI(true), pinCS(csPin) {}
 BMP280::BMP280(uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin, uint8_t csPin)
     : useHardwareSPI(false), pinCS(csPin), pinSCK(sckPin), pinMISO(misoPin), pinMOSI(mosiPin) {}
 
-bool BMP280::begin() {
+bool BMP280::begin(uint8_t chipId) {
     if (useHardwareSPI) {
         SPI.begin();
         pinMode(pinCS, OUTPUT);
@@ -25,7 +25,7 @@ bool BMP280::begin() {
 
     // Check BMP280 CHIP_ID
     uint8_t id = readRegister(BMP280_REG_CHIP_ID);
-    return id == BMP280_CHIP_ID;
+    return id == chipId;
 }
 
 void BMP280::select() {

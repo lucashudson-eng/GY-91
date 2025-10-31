@@ -3,10 +3,6 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-// I2C addresses (for reference; not used in SPI)
-#define BMP280_ADDRESS_0x76 0x76
-#define BMP280_ADDRESS_0x77 0x77
-
 // IDs and basic registers
 #define BMP280_CHIP_ID        0x58
 #define BMP280_REG_CHIP_ID     0xD0
@@ -20,7 +16,7 @@ public:
     BMP280(uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin, uint8_t csPin);
 
     // Initialize device; returns true if CHIP_ID matches
-    bool begin();
+    bool begin(uint8_t chipId = BMP280_CHIP_ID);
 
 private:
     // Pin configuration

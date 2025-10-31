@@ -3,7 +3,7 @@
 #define BMP_SCK  (14)
 #define BMP_MISO (12)
 #define BMP_MOSI (13)
-#define BMP_CS   (23)
+#define BMP_CS   (15)
 
 // BMP280 bmp(BMP_CS);
 BMP280 bmp(BMP_SCK, BMP_MISO, BMP_MOSI, BMP_CS);
